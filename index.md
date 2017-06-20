@@ -2,10 +2,11 @@
 title: General info
 ---
 
-Member at the [Institute for Advanced Study](http://www.sns.ias.edu/)
+Member at the [Institute for Advanced Study](http://www.sns.ias.edu/)<br>
+My [CV](KaurovCV.pdf)
 
 ### E-mail:
-kaurov@ias.edu
+kaurov@ias.edu <br>
 akaurov@gmail.com (GTalk)
 
 ### Skype:
@@ -22,12 +23,12 @@ RU: +7-921-357-9944 (active, while I’m in Russia)
 [https://goo.gl/yY0Npp](https://goo.gl/yY0Npp)
 
 ### My profile on various websites:
-[arXiv](http://arxiv.org/a/kaurov_a_1.html)
-[inSPIRE](http://inspirehep.net/author/profile/A.A.Kaurov.1)
-[Google scholar](https://scholar.google.com/citations?user=a9OxzkQAAAAJ)
+[arXiv](http://arxiv.org/a/kaurov_a_1.html) <br>
+[inSPIRE](http://inspirehep.net/author/profile/A.A.Kaurov.1) <br>
+[Google scholar](https://scholar.google.com/citations?user=a9OxzkQAAAAJ) 
 
-[BitBucket](https://bitbucket.org/kaurov)
-[GitHub](https://github.com/lue)
+[BitBucket](https://bitbucket.org/kaurov) <br>
+[GitHub](https://github.com/lue) 
 
-[ResearchGate](https://www.researchgate.net/profile/Alexander_Kaurov)
+[ResearchGate](https://www.researchgate.net/profile/Alexander_Kaurov) <br>
 [LinkedIn](http://www.linkedin.com/in/akaurov)
