@@ -3,7 +3,7 @@ title: General info
 ---
 
 I am a postdoctoral member at the [Institute for Advanced Study](http://www.sns.ias.edu/). My interests are mostly focused on the epoch of cosmic reionization. However, I occasionally do also other things. You can find my CV [here](KaurovCV.pdf). <br><br>
-If you are a undergraduate or graduate student, or even a high-school student, and looking for a project, please do not hesitate to contact me.
+If you are an undergraduate or graduate student, or even a high-school student, and looking for a project, please do not hesitate to contact me.
 
 ### E-mail:
 kaurov@ias.edu <br>
