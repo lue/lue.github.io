@@ -7,7 +7,7 @@ If you are an undergraduate or graduate student, or even a high-school student, 
 
 ### E-mail:
 kaurov@ias.edu <br>
-akaurov@gmail.com (GTalk)
+akaurov@gmail.com
 
 ### Skype:
 alexander.kaurov
@@ -22,7 +22,7 @@ RU: +7-921-357-9944 (active, while I’m in Russia)
 ### My papers on ADS:
 [https://goo.gl/yY0Npp](https://goo.gl/yY0Npp)
 
-### My profile on various websites:
+### My profiles on various websites:
 [arXiv](http://arxiv.org/a/kaurov_a_1.html) <br>
 [inSPIRE](http://inspirehep.net/author/profile/A.A.Kaurov.1) <br>
 [Google scholar](https://scholar.google.com/citations?user=a9OxzkQAAAAJ) 
