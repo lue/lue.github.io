@@ -96,7 +96,7 @@ function draw() {
             var Msum = M * Math.pow(4,5/3);
             // var M = 0;
             // (speed of light)**3 / (gravitational constant) * (5/96*pi**(-8/3))**(3/5) in (solar mass / sec)
-            if(nesum > 0.5*(f.length-1)) {
+            if(nesum > 0.0*(f.length-1)) {
                 message = "It sounded like something with total mass\nM = " +
                     Math.round(Msum * 100) / 100 +
                     " Solar masses.";
