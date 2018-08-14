@@ -107,7 +107,7 @@ function draw() {
         f.push(spec_f)
     }
     else {
-        if(f.length>5) {
+        if(f.length>3) {
             let estim = [];
             for(let i = 1; i < f.length; i++) {
                 fdot = ((f[i]-f[i-1]) / (1.0/30.0));
@@ -137,11 +137,11 @@ function draw() {
                 message = "It sounded strange...";
             }
         }
-        else {
-            if(f.length>2) {
-                message = "Signal was too short... Try to be louder.";
-            }
-        }
+        // else {
+        //     if(f.length>2) {
+        //         message = "Signal was too short... Try to be louder.";
+        //     }
+        // }
         f = [];
         fdot = [];
 
