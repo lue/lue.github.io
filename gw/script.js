@@ -1,4 +1,4 @@
-var mic, fft, col, img, scale, scalex, f, fdot;
+var mic, fft, col, img, scaley, scalex, f, fdot;
 var greeting;
 var message, fontsize = 10;
 
@@ -21,12 +21,12 @@ function setup() {
     var canvas = createCanvas(window.innerWidth, window.innerHeight);
     img = createImage(window.innerWidth, window.innerHeight);
 
-    scale=Math.round(canvas.height/240);
+    scaley=Math.round(canvas.height/240);
     scalex=Math.round(canvas.width/240);
 
-    console.log(window.innerWidth, window.innerHeight);
-    console.log(canvas.height,canvas.width);
-    console.log(scale,scalex);
+    // console.log(window.innerWidth, window.innerHeight);
+    // console.log(canvas.height,canvas.width);
+    // console.log(scale,scalex);
 
     img.loadPixels();
     for(var x = 0; x < img.width; x++) {
@@ -51,12 +51,12 @@ function windowResized() {
     resizeCanvas(window.innerWidth, window.innerHeight);
     img.loadPixels();
     img.resize(window.innerWidth, window.innerHeight);
-    scale=Math.round(window.innerHeight/240);
+    scaley=Math.round(window.innerHeight/240);
     scalex=Math.round(window.innerWidth/240);
 
-    console.log(window.innerWidth, window.innerHeight);
-    console.log(canvas.height,canvas.width);
-    console.log(scale,scalex);
+    // console.log(window.innerWidth, window.innerHeight);
+    // console.log(canvas.height,canvas.width);
+    // console.log(scale,scalex);
 
     img.updatePixels();
 }
@@ -79,10 +79,10 @@ function draw() {
     img.loadPixels();
 
     for(var x = col*scalex; x < (col+1)*scalex; x++) {
-        for (var y = 0; y < img.height / scale; y++) {
+        for (var y = 0; y < img.height / scaley; y++) {
             var a = map(spectrum[y + 6], 0, img.height, 255, 0);
-            for (var i = 0; i < scale; i++) {
-                img.set(x, scale * y + i, [0, 0, 0, a]);
+            for (var i = 0; i < scaley; i++) {
+                img.set(x, scaley * y + i, [0, 0, 0, a]);
             }
         }
     }
@@ -94,8 +94,8 @@ function draw() {
 
     if(spec_max>190) {
         for(var x = col*scalex; x < (col+1)*scalex; x++) {
-            for (var i = 0; i < scale; i++) {
-                img.set(x, scale * (spec_i - 6) + i, [255, 0, 0, 128]);
+            for (var i = 0; i < scaley; i++) {
+                img.set(x, scaley * (spec_i - 6) + i, [255, 0, 0, 128]);
             }
         }
         f.push(spec_f)
