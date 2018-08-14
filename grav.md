@@ -1,6 +1,10 @@
-If you have never heard, here is how gravitational waves sound like:
-<iframe width="560" height="315" src="https://www.youtube.com/watch?v=TWqhUANNFXw" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+If you have never heard, here is how gravitational waves of merging two massive (>20 Solar masses) black holes sound like:<br>
+https://www.youtube.com/watch?v=TWqhUANNFXw
 
+And here is audio of merging neutron stars (sound comes in the last second):<br>
+https://www.youtube.com/watch?v=vTeAFAGpfso
+
+___
 
 I made a small web app to train yourself to `whistle` a gravitaional wave:
 [https://kaurov.org/gw](https://kaurov.org/gw)
