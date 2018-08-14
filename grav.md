@@ -6,7 +6,7 @@ Here is the audio of merging neutron stars (sound is audible in the last few sec
 
 ___
 
-I made a small web app to train yourself to 'whistle' a gravitational wave (if on mobile use landscape mode):
+I made a small web app to train yourself to 'whistle' a gravitational wave (if on mobile, use landscape mode):
 [https://kaurov.org/gw](https://kaurov.org/gw)
 
 It may ask you to allow the browser to use the microphone. Obviously you should agree. There is no reason not to trust me... Really*...
