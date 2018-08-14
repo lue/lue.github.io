@@ -138,7 +138,7 @@ function draw() {
             }
         }
         else {
-            if(f.length>0) {
+            if(f.length>2) {
                 message = "Signal was too short... Try to be louder.";
             }
         }
