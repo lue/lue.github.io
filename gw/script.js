@@ -77,6 +77,7 @@ function draw() {
 
     image(img, 0, 0);
     img.loadPixels();
+
     for(var x = col*scalex; x < (col+1)*scalex; x++) {
         for (var y = 0; y < img.height / scale; y++) {
             var a = map(spectrum[y + 6], 0, img.height, 255, 0);
@@ -85,6 +86,12 @@ function draw() {
             }
         }
     }
+
+    for (var y = 0; y < img.height; y++) {
+        img.set((col+1)*scalex, y, [0, 255, 0, 255]);
+    }
+
+
     if(spec_max>190) {
         for(var x = col*scalex; x < (col+1)*scalex; x++) {
             for (var i = 0; i < scale; i++) {
@@ -113,7 +120,6 @@ function draw() {
             //https://en.wikipedia.org/wiki/Chirp_mass
             var M = 5523 * esum;
             var Msum = M * Math.pow(4,5/3);
-            // var M = 0;
             // (speed of light)**3 / (gravitational constant) * (5/96*pi**(-8/3))**(3/5) in (solar mass / sec)
             if(nesum > 0.0*(f.length-1)) {
                 message = "It sounded like something merged in a \nM = " +
