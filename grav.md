@@ -6,7 +6,7 @@ And here is audio of merging neutron stars (sound comes in the last second):<br>
 
 ___
 
-I made a small web app to train yourself to 'whistle' a gravitaional wave:
+I made a small web app to train yourself to 'whistle' a gravitaional wave (if on mobile use landscape mode):
 [https://kaurov.org/gw](https://kaurov.org/gw)
 
 It may ask you to allow the browser to use the microphone. Obsiously you should agree. There is no reason not to trust me... Really*...
@@ -15,4 +15,4 @@ Current version of the script only shows only the total mass of the final object
 
 It is actually quite hard to mimic any of the measured signals (with high masses).
 
-*_The source code can be seen here: https://github.com/lue/lue.github.io/tree/master/gw_
+*_The source code can be seen here: [https://github.com/lue/lue.github.io/tree/master/gw](https://github.com/lue/lue.github.io/tree/master/gw)_
