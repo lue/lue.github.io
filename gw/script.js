@@ -5,8 +5,6 @@ var message, fontsize = 10;
 function setup() {
     frameRate(30);
 
-    scale=5;
-    scalex=5;
     f = [];
     fdot = 0;
 
@@ -21,7 +19,15 @@ function setup() {
     // textSize(50);
 
     var canvas = createCanvas(window.innerWidth, window.innerHeight);
-    img = createImage(canvas.width, canvas.height);
+    img = createImage(window.innerWidth, window.innerHeight);
+
+    scale=Math.round(canvas.height/240);
+    scalex=Math.round(canvas.width/240);
+
+    console.log(window.innerWidth, window.innerHeight);
+    console.log(canvas.height,canvas.width);
+    console.log(scale,scalex);
+
     img.loadPixels();
     for(var x = 0; x < img.width; x++) {
         for(var y = 0; y < img.height; y++) {
@@ -41,6 +47,19 @@ function setup() {
 }
 
 
+function windowResized() {
+    resizeCanvas(window.innerWidth, window.innerHeight);
+    img.loadPixels();
+    img.resize(window.innerWidth, window.innerHeight);
+    scale=Math.round(window.innerHeight/240);
+    scalex=Math.round(window.innerWidth/240);
+
+    console.log(window.innerWidth, window.innerHeight);
+    console.log(canvas.height,canvas.width);
+    console.log(scale,scalex);
+
+    img.updatePixels();
+}
 
 function draw() {
     background(255);
@@ -97,9 +116,11 @@ function draw() {
             // var M = 0;
             // (speed of light)**3 / (gravitational constant) * (5/96*pi**(-8/3))**(3/5) in (solar mass / sec)
             if(nesum > 0.0*(f.length-1)) {
-                message = "It sounded like something with total mass\nM = " +
+                message = "It sounded like something merged in a \nM = " +
                     Math.round(Msum * 100) / 100 +
-                    " Solar masses.";
+                    " Solar mass ";
+                if(Msum > 1.4) {message += "Black Hole";}
+                else {message += "Compact Object";}
             }
             else {
                 message = "It sounded strange...";

@@ -10,8 +10,8 @@ function setup() {
   scale = 4
 
 
-  createCanvas(windowWidth, windowHeight);
-  scale = Math.min(windowWidth/N, windowHeight/N);
+  resizeCanvas(window.innerWidth, window.innerHeight);
+  scale = Math.min(window.innerWidth/N, window.innerHeight/N);
   // fft = new p5.FFT();
   maxDistance = dist(width/2, height/2, width, height);
 
@@ -58,8 +58,8 @@ function setup() {
 }
 
 function windowResized() {
-  resizeCanvas(windowWidth, windowHeight);
-  scale = Math.min(windowWidth/N, windowHeight/N);
+  resizeCanvas(window.innerWidth, window.innerHeight);
+  scale = Math.min(window.innerWidth/N, window.innerHeight/N);
 }
 
 function icfield() {
