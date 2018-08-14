@@ -15,4 +15,6 @@ Current version of the script shows only the total mass of the final object. The
 
 It is actually quite hard to mimic any of the measured signals (with high masses).
 
+I am happy to hear any suggestions and to collaborate on equally useful projects.
+
 *_The source code can be seen here: [https://github.com/lue/lue.github.io/tree/master/gw](https://github.com/lue/lue.github.io/tree/master/gw)_
