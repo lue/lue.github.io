@@ -11,7 +11,7 @@ function setup() {
 
     started = true;
 
-    message = "";
+    message = "Start whistling!";
     textSize(fontsize);
 
     // fill(255,255,255);  // text is white
@@ -153,7 +153,7 @@ function draw() {
 
     img.updatePixels();
 
-    text(message, 10, 20);
+    text(message, 10, window.innerHeight-40);
 }
 
 
