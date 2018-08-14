@@ -124,8 +124,8 @@ function draw() {
             esum = esum / nesum;
             //https://en.wikipedia.org/wiki/Chirp_mass
             let M = 5523 * esum;
-            let Msum = M * Math.pow(4,5/3);
             // (speed of light)**3 / (gravitational constant) * (5/96*pi**(-8/3))**(3/5) in (solar mass / sec)
+            let Msum = M / Math.pow(1./4.,3./5.);
             if(nesum > 0.0*(f.length-1)) {
                 message = "It sounded like something merged in a \nM = " +
                     Math.round(Msum * 100) / 100 +
