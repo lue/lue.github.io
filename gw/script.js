@@ -92,7 +92,7 @@ function draw() {
     }
 
 
-    if(spec_max>190) {
+    if(spec_max>150) {
         for(var x = col*scalex; x < (col+1)*scalex; x++) {
             for (var i = 0; i < scaley; i++) {
                 img.set(x, scaley * (spec_i - 6) + i, [255, 0, 0, 128]);
