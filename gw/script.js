@@ -21,7 +21,7 @@ function setup() {
     var canvas = createCanvas(window.innerWidth, window.innerHeight);
     img = createImage(window.innerWidth, window.innerHeight);
 
-    scaley=Math.round(canvas.height/240);
+    scaley=Math.round(canvas.height/120);
     scalex=Math.round(canvas.width/240);
 
     // console.log(window.innerWidth, window.innerHeight);
@@ -51,7 +51,7 @@ function windowResized() {
     resizeCanvas(window.innerWidth, window.innerHeight);
     img.loadPixels();
     img.resize(window.innerWidth, window.innerHeight);
-    scaley=Math.round(window.innerHeight/240);
+    scaley=Math.round(window.innerHeight/120);
     scalex=Math.round(window.innerWidth/240);
 
     // console.log(window.innerWidth, window.innerHeight);
