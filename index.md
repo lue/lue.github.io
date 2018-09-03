@@ -20,7 +20,7 @@ US: +1-773-787-9856 <br>
 RU: +7-921-357-9944 (active, while I’m in Russia)
 
 ### My papers on ADS:
-[https://goo.gl/yY0Npp](https://goo.gl/yY0Npp)
+[http://bit.ly/ads_kaurov](http://bit.ly/ads_kaurov)
 
 ### My profiles on various websites:
 [ORCID](https://orcid.org/0000-0003-0255-1204) <br>
