@@ -2,6 +2,7 @@ var mic, fft, col, img, scaley, scalex, f, fdot;
 var greeting;
 var message, fontsize = 10;
 var started;
+var img_height, img_width;
 
 function setup() {
     frameRate(30);
@@ -22,20 +23,23 @@ function setup() {
     // textSize(50);
 
     let canvas = createCanvas(window.innerWidth, window.innerHeight);
-    img = createImage(window.innerWidth, window.innerHeight);
+	// canvas.parent('myContainer');
 
-    scaley=Math.round(canvas.height/120);
-    scalex=Math.round(canvas.width/240);
+	img_height = 500;//window.innerHeight/2
+	img_width = 500;//window.innerWidth/2
+    img = createImage(img_width, img_height);
+    scaley=Math.round(img_height/120);
+    scalex=Math.round(img_width/240);
 
     // console.log(window.innerWidth, window.innerHeight);
     // console.log(canvas.height,canvas.width);
     // console.log(scale,scalex);
 
     img.loadPixels();
-    for(var x = 0; x < img.width; x++) {
-        for(var y = 0; y < img.height; y++) {
-            var a = map(0, 0, img.height, 255, 0);
-            img.set(x, y, [0, 0, 0, a]);
+    for(var x = 0; x < img_width; x++) {
+        for(var y = 0; y < img_height; y++) {
+            // var a = map(0, 0, img.height, 255, 0);
+            img.set(x, y, [0, 0, 0,0]);
         }
     }
     img.updatePixels();
@@ -55,16 +59,16 @@ function setup() {
 
 function windowResized() {
     resizeCanvas(window.innerWidth, window.innerHeight);
-    img.loadPixels();
-    img.resize(window.innerWidth, window.innerHeight);
-    scaley=Math.round(window.innerHeight/120);
-    scalex=Math.round(window.innerWidth/240);
+    //img.loadPixels();
+    //img.resize(window.innerWidth, window.innerHeight);
+    scaley=Math.round(img.height/120);
+    scalex=Math.round(img.width/240);
 
     // console.log(window.innerWidth, window.innerHeight);
     // console.log(canvas.height,canvas.width);
     // console.log(scale,scalex);
 
-    img.updatePixels();
+    //img.updatePixels();
 }
 
 function draw() {
@@ -81,7 +85,8 @@ function draw() {
     //var temp = _.indexOf(spectrum, _.max(spectrum));
     // text("centroid: "+round(spec_f)+" Hz " + round(spec_max), 10, 40);
 
-    image(img, 0, 0);
+    // image(img, 0, 0, window.innerWidth, window.innerHeight);
+    image(img, 0, 0, window.innerWidth, window.innerHeight);
     img.loadPixels();
 
     for(let x = col*scalex; x < (col+1)*scalex; x++) {
@@ -93,7 +98,8 @@ function draw() {
         }
     }
 
-    for (let y = 0; y < img.height; y++) {
+    for (let y = 0; y < img_height; y++) {
+//        img.set((col+1)*scalex, y, [0, 255, 0, 255]);
         img.set((col+1)*scalex, y, [0, 255, 0, 255]);
     }
 
