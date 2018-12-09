@@ -25,10 +25,10 @@ function setup() {
     let canvas = createCanvas(window.innerWidth, window.innerHeight);
 	// canvas.parent('myContainer');
 
-	img_height = 500;//window.innerHeight/2
-	img_width = 500;//window.innerWidth/2
+	img_height = 200;//window.innerHeight/2
+	img_width = 200;//window.innerWidth/2
     img = createImage(img_width, img_height);
-    scaley=Math.round(img_height/120);
+    scaley=1;//Math.round(img_height/120);
     scalex=Math.round(img_width/240);
 
     // console.log(window.innerWidth, window.innerHeight);
@@ -59,9 +59,9 @@ function setup() {
 
 function windowResized() {
     resizeCanvas(window.innerWidth, window.innerHeight);
-    //img.loadPixels();
-    //img.resize(window.innerWidth, window.innerHeight);
-    scaley=Math.round(img.height/120);
+    // img.loadPixels();
+    // img.resize(window.innerWidth, window.innerHeight);
+    // scaley=Math.round(img.height/120);
     scalex=Math.round(img.width/240);
 
     // console.log(window.innerWidth, window.innerHeight);
@@ -118,7 +118,7 @@ function draw() {
             for(let i = 1; i < f.length; i++) {
                 fdot = ((f[i]-f[i-1]) / (1.0/30.0));
                 estim.push(Math.pow(f[i], -11./5.)*Math.pow(fdot,3./5.));
-            }
+			}
             let esum = 0;
             let nesum = 0;
             for(let i = 0; i < estim.length; i++) {
