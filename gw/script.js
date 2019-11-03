@@ -1,4 +1,4 @@
-var mic, fft, col, img, scaley, scalex, f, fdot;
+var mic, fft, col, img, imgbig, scaley, scalex, f, fdot;
 var greeting;
 var message, fontsize = 10;
 var started;
@@ -40,8 +40,9 @@ function setup() {
 	// canvas.parent('myContainer');
 
 	img_height = 200;//window.innerHeight/2
-	img_width = 200;//window.innerWidth/2
+	img_width = 240;//window.innerWidth/2
     img = createImage(img_width, img_height);
+	imgbig = createImage(window.innerWidth, window.innerHeight);
     scaley=1;//Math.round(img_height/120);
     scalex=Math.round(img_width/240);
 
@@ -53,10 +54,13 @@ function setup() {
     for(var x = 0; x < img_width; x++) {
         for(var y = 0; y < img_height; y++) {
             // var a = map(0, 0, img.height, 255, 0);
-            img.set(x, y, [0, 0, 0,0]);
+            img.set(x, y, [0, 0, 0, 0]);
         }
     }
     img.updatePixels();
+	
+	// imgbig = img.get();
+    // imgbig.resize(window.innerWidth, window.innerHeight);
 
     col = 0;
     noFill();
@@ -67,7 +71,7 @@ function setup() {
     fft.setInput(mic);
 
     fftnoise = fft.analyze();
-	console.log(0.99*fftnoise[10]);
+	
     loop();
 }
 
@@ -106,7 +110,7 @@ function draw() {
 	}
 	// console.log(fftnoise[10]);
 
-    fill(255,255,255);  // text is white
+    fill(0,0,0);  // text is white
     textSize(20);
 	
 	// searching for a peak in the spectrum
@@ -120,7 +124,7 @@ function draw() {
     // text("centroid: "+round(spec_f)+" Hz " + round(spec_max), 10, 40);
     // image(img, 0, 0, window.innerWidth, window.innerHeight);
 
-    image(img, 0, 0, window.innerWidth, window.innerHeight);
+    image(img, 0, 50, window.innerWidth, window.innerHeight-50);
     img.loadPixels();
 
     // update spectrogram
@@ -200,8 +204,12 @@ function draw() {
     if(col>img.width/scalex) col=0;
 
     img.updatePixels();
+	
+	// imgbig = img.get();
+    // imgbig.resize(window.innerWidth, window.innerHeight);
+    // imgbig.updatePixels();
 
-    text(message, 10, window.innerHeight-40);
+    text(message, 10, 20);
 }
 
 
