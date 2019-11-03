@@ -3,6 +3,7 @@ var greeting;
 var message, fontsize = 10;
 var started;
 var img_height, img_width;
+var fftnoise;
 
 function setup() {
 	let myDiv = createDiv('click to start audio');
@@ -65,7 +66,8 @@ function setup() {
     fft = new p5.FFT(0.01, 1024);
     fft.setInput(mic);
 
-
+    fftnoise = fft.analyze();
+	console.log(0.99*fftnoise[10]);
     loop();
 }
 
@@ -85,16 +87,33 @@ function windowResized() {
     //img.updatePixels();
 }
 
+function getnoise() {
+	//Get some idea about noise levels
+	
+	
+}
+
 function draw() {
-    background(0);
+    background(255);
 
     let spectrum = fft.analyze();
     let nyquist = 22050;
 
+	// Average noise background
+    for (var i = 0; i < fftnoise.length; i++) {
+		fftnoise[i] = 0.999*fftnoise[i] + 0.001*spectrum[i];
+		spectrum[i] = spectrum[i] - fftnoise[i];
+	}
+	// console.log(fftnoise[10]);
+
     fill(255,255,255);  // text is white
     textSize(20);
+	
+	// searching for a peak in the spectrum
     let spec_max = Math.max(...spectrum.slice(6, 1024));
+	//getting its index
     let spec_i = 6 + spectrum.slice(6, 1024).indexOf(spec_max);
+	// getting frequency
     let spec_f = 26.075*(spec_i) - 50.4; // stupid fit
 
     //var temp = _.indexOf(spectrum, _.max(spectrum));
@@ -104,15 +123,22 @@ function draw() {
     image(img, 0, 0, window.innerWidth, window.innerHeight);
     img.loadPixels();
 
+    // update spectrogram
+	let a = 0;
     for(let x = col*scalex; x < (col+1)*scalex; x++) {
+		// console.log(spectrum[20]);
+		// console.log(map(spectrum[20], 0, img.height, 255, 0));
+		
         for (let y = 0; y < img.height / scaley; y++) {
-            let a = map(spectrum[y + 6], 0, img.height, 255, 0);
+            a = map(spectrum[y + 6], 0, img.height, 255, 0);
+		    // console.log(a)
             for (let i = 0; i < scaley; i++) {
                 img.set(x, scaley * y + i, [0, 0, 0, a]);
             }
         }
     }
 
+    // draw a green line that runs through the canvas
     for (let y = 0; y < img_height; y++) {
 //        img.set((col+1)*scalex, y, [0, 255, 0, 255]);
         img.set((col+1)*scalex, y, [0, 255, 0, 255]);
@@ -127,6 +153,7 @@ function draw() {
         }
         f.push(spec_f)
     }
+	
     else {
         if(f.length>3) {
             let estim = [];
