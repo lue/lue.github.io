@@ -5,7 +5,20 @@ var started;
 var img_height, img_width;
 
 function setup() {
-    frameRate(30);
+	let myDiv = createDiv('click to start audio');
+    myDiv.position(0, 0);
+
+  let mySynth = new p5.MonoSynth();
+
+  // This won't play until the context has started
+  mySynth.play('A6');
+
+  // Start the audio context on a click/touch event
+  userStartAudio().then(function() {
+     myDiv.remove();
+   });
+   
+    frameRate(60);
 
     f = [];
     fdot = 0;
@@ -62,7 +75,8 @@ function windowResized() {
     // img.loadPixels();
     // img.resize(window.innerWidth, window.innerHeight);
     // scaley=Math.round(img.height/120);
-    scalex=Math.round(img.width/240);
+    
+	scalex=Math.round(img.width/240);
 
     // console.log(window.innerWidth, window.innerHeight);
     // console.log(canvas.height,canvas.width);
@@ -72,7 +86,7 @@ function windowResized() {
 }
 
 function draw() {
-    background(255);
+    background(0);
 
     let spectrum = fft.analyze();
     let nyquist = 22050;
@@ -82,10 +96,11 @@ function draw() {
     let spec_max = Math.max(...spectrum.slice(6, 1024));
     let spec_i = 6 + spectrum.slice(6, 1024).indexOf(spec_max);
     let spec_f = 26.075*(spec_i) - 50.4; // stupid fit
+
     //var temp = _.indexOf(spectrum, _.max(spectrum));
     // text("centroid: "+round(spec_f)+" Hz " + round(spec_max), 10, 40);
-
     // image(img, 0, 0, window.innerWidth, window.innerHeight);
+
     image(img, 0, 0, window.innerWidth, window.innerHeight);
     img.loadPixels();
 
@@ -172,4 +187,10 @@ function mousePressed() {
         loop();
         started = true;
     }
+}
+
+function touchStarted() {
+  if (getAudioContext().state !== 'running') {
+    getAudioContext().resume();
+  }
 }
