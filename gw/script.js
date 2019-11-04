@@ -137,7 +137,7 @@ function draw() {
             a = map(spectrum[y + 6], 0, img.height, 255, 0);
 		    // console.log(a)
             for (let i = 0; i < scaley; i++) {
-                img.set(x, scaley * y + i, [0, 0, 0, a]);
+                img.set(x, img_height-scaley * y + i, [0, 0, 0, a]);
             }
         }
     }
@@ -149,10 +149,10 @@ function draw() {
     }
 
 
-    if(spec_max>150) {
+    if(spec_max>100) {
         for(let x = col*scalex; x < (col+1)*scalex; x++) {
             for (let i = 0; i < scaley; i++) {
-                img.set(x, scaley * (spec_i - 6) + i, [255, 0, 0, 128]);
+                img.set(x, img_height-scaley * (spec_i - 6) + i, [255, 0, 0, 128]);
             }
         }
         f.push(spec_f)
@@ -184,6 +184,9 @@ function draw() {
                     " Solar mass ";
                 if(Msum > 1.4) {message += "Black Hole";}
                 else {message += "Compact Object";}
+				// fill(255,0,0);
+				// circle((col + 0.5) * scalex * window.innerWidth / img_width, 50 + scaley * (spec_i - 6) + 0.5 * scaley * window.innerHeight / img_height, 10);
+	
             }
             else {
                 message = "It sounded strange...";
@@ -205,10 +208,11 @@ function draw() {
 
     img.updatePixels();
 	
+	
 	// imgbig = img.get();
     // imgbig.resize(window.innerWidth, window.innerHeight);
     // imgbig.updatePixels();
-
+	fill(0,0,0);
     text(message, 10, 20);
 }
 
