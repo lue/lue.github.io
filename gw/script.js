@@ -159,7 +159,7 @@ function draw() {
     }
 	
     else {
-        if(f.length>3) {
+        if(f.length>8) {
             let estim = [];
             for(let i = 1; i < f.length; i++) {
                 fdot = ((f[i]-f[i-1]) / (1.0/30.0));
