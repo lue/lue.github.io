@@ -1,0 +1,105 @@
+<html>
+  <head>
+    <title>A-Frame Workshop</title>
+    <script src="https://aframe.io/releases/1.0.3/aframe.min.js"></script>
+    <script src="https://unpkg.com/ar.js@1.7.1/aframe/build/aframe-ar.min.js"></script>
+    <script src="/assets/components/play-on-parent-marker-visible.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/donmccurdy/aframe-extras@v6.1.0/dist/aframe-extras.min.js"></script>
+  </head>
+
+  <body style="margin: 0px; overflow: hidden;">
+    <a-scene
+      embedded
+      arjs="patternRatio: 0.6; sourceType: webcam; debugUIEnabled: false;"
+      vr-mode-ui="enabled: false"
+      renderer="logarithmicDepthBuffer: true; colorManagement: true;"
+      loading-screen="dotsColor: white; backgroundColor: black"
+    >
+      <a-assets>
+        <a-asset-item
+          id="headrest"
+          src="https://raw.githubusercontent.com/alteous/glTF-Sample-Models-Official/master/2.0/BoxAnimated/glTF/BoxAnimated.gltf"
+        ></a-asset-item>
+<!--         <a-asset-item
+          id="headrest-sound"
+          src="https://nomad-project.co.uk/static/mp3/headrest.mp3"
+          response-type="arraybuffer"
+          preload="auto"
+        ></a-asset-item> -->
+        <a-asset-item
+          id="gourd"
+          src="https://nomad-project.co.uk/objects/collection/gourd/_gourd/gourd.gltf"
+        ></a-asset-item>
+<!--         <a-asset-item
+          id="gourd-sound"
+          src="https://nomad-project.co.uk/static/mp3/gourd.mp3"
+          response-type="arraybuffer"
+          preload="auto"
+        ></a-asset-item> -->
+        <a-mixin
+          id="rotating"
+          animation="property: rotation; from: '0 0 0'; to: '0 360 0'; dur: 10000; loop: true; easing: linear; autoplay: true;"
+        ></a-mixin>
+      </a-assets>
+
+      <a-marker name='id1' type="pattern" url="https://cdn.glitch.com/8fdbe832-dc3f-4b5b-93dd-dc7633dac1ef%2F0.patt?v=1573300439741">
+<!--         <a-sound src="#headrest-sound" play-on-parent-marker-visible></a-sound> -->
+        <a-entity
+          position="0 1 0"
+          scale="2 2 2"
+          gltf-model="#headrest"
+          animation-mixer="timeScale: 1"
+        >
+        </a-entity>
+      </a-marker>
+
+      <a-marker type="pattern" url="https://cdn.glitch.com/8fdbe832-dc3f-4b5b-93dd-dc7633dac1ef%2F1.patt?v=1573300597346">
+<!--         <a-sound src="#gourd-sound" play-on-parent-marker-visible></a-sound> -->
+        <a-entity
+          position="0 1 0"
+          scale="0.1 0.1 0.1"
+          gltf-model="#gourd"
+          mixin="rotating"
+        >
+        </a-entity>
+      </a-marker>
+
+      <a-entity camera></a-entity>
+    </a-scene>
+    
+    
+    <script>
+      // console.log(THREE);
+      console.log("hello");
+      // initialize();
+      animate();
+      
+      var distance = 0.;
+      
+      // function initialize()
+      // { 
+      //   var mesh = document.querySelector('a-entity').object3D.children[0];
+      //   mixer = new THREE.AnimationMixer( mesh );
+      // var action = mixer.clipAction( mesh.animations[ 0 ] );
+      // action.play();
+      // }
+      
+      function animate() {
+        requestAnimationFrame( animate );
+        // console.log("hello");
+        document.querySelector('a-entity').object3D.position.copy(new THREE.Vector3( 0, 1, 0 ));
+        // document.querySelector('a-entity').object3D.s
+        // renderer.render( scene, camera );
+        distance = document.querySelectorAll('a-marker')[0].object3D.getWorldPosition().distanceTo(document.querySelectorAll('a-marker')[1].object3D.getWorldPosition());
+        console.log(distance);
+        document.querySelector('a-entity').components["animation-mixer"].mixer.setTime(distance);
+        
+      }
+      // function update()
+      // {
+      //   // update artoolkit on every frame
+      //   console.log("1");
+      // }
+    </script>
+  </body>
+</html>
